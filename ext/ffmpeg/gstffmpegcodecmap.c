@@ -33,7 +33,7 @@
 #include "gstffmpeg.h"
 #include "gstffmpegcodecmap.h"
 
-#include <gst/pbutils/codec-utils.h>
+//#include <gst/pbutils/codec-utils.h>
 
 /*
  * Read a palette from a caps.
@@ -210,11 +210,11 @@ gst_ff_vid_caps_new (AVCodecContext * context, enum CodecID codec_id,
       GST_LOG ("invalid framerate: %d/0, -> %d/1", num, num);
       denom = 1;
     }
-    if (gst_util_fraction_compare (num, denom, 1000, 1) > 0) {
+    /*if (gst_util_fraction_compare (num, denom, 1000, 1) > 0) {
       GST_LOG ("excessive framerate: %d/%d, -> 0/1", num, denom);
       num = 0;
       denom = 1;
-    }
+    }*/
     GST_LOG ("setting framerate: %d/%d", num, denom);
     gst_caps_set_simple (caps,
         "framerate", GST_TYPE_FRACTION, num, denom, NULL);
@@ -1004,9 +1004,9 @@ gst_ffmpeg_codecid_to_caps (enum CodecID codec_id,
             "stream-format", G_TYPE_STRING, "raw",
             "base-profile", G_TYPE_STRING, "lc", NULL);
 
-        if (context && context->extradata_size > 0)
+        /*if (context && context->extradata_size > 0)
           gst_codec_utils_aac_caps_set_level_and_profile (caps,
-              context->extradata, context->extradata_size);
+              context->extradata, context->extradata_size);*/
       }
 
       break;
