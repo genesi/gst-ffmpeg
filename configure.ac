@@ -22,7 +22,7 @@ dnl can autoconf find the source ?
 AC_CONFIG_SRCDIR([ext/ffmpeg/gstffmpeg.c])
 
 dnl define the output header for config
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 
 dnl AM_MAINTAINER_MODE only provides the option to configure to enable it
 AM_MAINTAINER_MODE
@@ -47,7 +47,7 @@ AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 
 dnl *** required versions of GStreamer stuff ***
-GST_REQ=0.10.31
+GST_REQ=0.10.30
 ORC_REQ=0.4.6
 
 dnl *** autotools stuff ****
